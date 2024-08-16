@@ -8,6 +8,7 @@ import Projects from './pages/Projects';
 import ContactMe from './pages/ContactMe';
 import Skills from './pages/Skills';
 import Qualification from './pages/Qualification';
+import NotFound from './pages/NotFound';
 function App() {
   return (
     <>
@@ -20,6 +21,7 @@ function App() {
           <Route path='/projects'element={<Projects/>}/>
           <Route path='/contact'element={<ContactMe/>}/>
           <Route path='/skills'element={<Skills/>}/>
+          <Route path='*'element={<NotFound/>}/>
         </Routes>
       </Router>
     </>
