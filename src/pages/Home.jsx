@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import pic from '../asset/pic.jpg';
 
 function Home() {
-  const resume_URL = 'http://localhost:3000/SagnikGhoshResume.pdf';
+  const resume_URL = 'https://sagnikghosh.netlify.app/SagnikGhoshResume.pdf';
 
   const downloadResume = (url) => {
     const fileName = url.split('/').pop();

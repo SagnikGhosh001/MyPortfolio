@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Download } from '@mui/icons-material';
 
 const About = () => {
-  const resume_URL = 'http://localhost:3000/SagnikGhoshResume.pdf';
+  const resume_URL = 'hhttps://sagnikghosh.netlify.app/SagnikGhoshResume.pdf';
 
   const downloadResume = (url) => {
     const fileName = url.split('/').pop();

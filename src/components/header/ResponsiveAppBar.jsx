@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 import pic from '../../asset/pic.jpg'
 
 
-const resume_URL = 'http://localhost:3000/SagnikGhoshResume.pdf'
+const resume_URL = 'https://sagnikghosh.netlify.app/SagnikGhoshResume.pdf'
 const pages = ['Home', 'About Me','Skills', 'Qualification', 'projects', 'Contact'];
 const settings = ['Resume'];
 
