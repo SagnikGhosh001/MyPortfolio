@@ -84,17 +84,35 @@ function Home() {
           </a>
         </Box>
       </Box>
-      <Button
-        component="label"
-        role={undefined}
-        variant="contained"
-        tabIndex={-1}
-        startIcon={<DownloadIcon />}
-        onClick={() => downloadResume(resume_URL)}
-        sx={{ mt: 4 }}
-      >
-        Download Resume
-      </Button>
+
+      <Box sx={{ display: 'flex', gap: 2, mt: 4 }}>
+        
+        <Button
+          component={Link}
+          to='/aboutme'
+          variant="contained"
+          sx={{
+            bgcolor: '#004d40',
+            color: '#ffffff',
+            ':hover': { bgcolor: '#00332a' },
+          }}
+        >
+          About Me
+        </Button>
+        <Button
+          variant="contained"
+          startIcon={<DownloadIcon />}
+          onClick={() => downloadResume(resume_URL)}
+          sx={{
+            bgcolor: '#004d40',
+            color: '#ffffff',
+            ':hover': { bgcolor: '#00332a' },
+          }}
+        >
+          Download Resume
+        </Button>
+      </Box>
+
     </Box>
   );
 }

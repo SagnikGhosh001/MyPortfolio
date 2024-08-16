@@ -1,4 +1,5 @@
-import { Box, Card, CardContent, Divider, Grid, Typography } from '@mui/material'
+import { Box, Button, Card, CardContent, Divider, Grid, Typography } from '@mui/material'
+import ContactMailIcon from '@mui/icons-material/ContactMail';
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -106,8 +107,8 @@ function Projects() {
               <Typography gutterBottom variant="body" component="div" sx={{ color: '#004d40' }}>
                 <ul>
                   <li><b>Features:</b>Allows teachers to upload and manage notes by semester and department, assign and track assignments, and take attendance.</li>
-                  <li><b>User Functions:</b> Enables students and teachers to create and update profiles, access educational materials, and receive OTP-based verification for 
-                  enhanced security.
+                  <li><b>User Functions:</b> Enables students and teachers to create and update profiles, access educational materials, and receive OTP-based verification for
+                    enhanced security.
                   </li>
                   <li><b>Framework Used:</b>Spring Boot.</li>
                 </ul>
@@ -132,11 +133,11 @@ function Projects() {
           >
             <CardContent>
               <Typography gutterBottom variant="h5" component="div" sx={{ color: '#004d40' }}>
-              Food Blogging Website
+                Food Blogging Website
               </Typography>
               <Typography gutterBottom variant="body" component="div" sx={{ color: '#004d40' }}>
                 <b>Git: </b><Link to={'https://github.com/SagnikGhosh001/NodejsFoodBlog'} style={{ textDecoration: 'none', paddingRight: '10px' }}>Backend</Link>
-                
+
               </Typography>
               <Typography gutterBottom variant="body" component="div" sx={{ color: '#004d40' }}>
                 <ul>
@@ -166,11 +167,11 @@ function Projects() {
           >
             <CardContent>
               <Typography gutterBottom variant="h5" component="div" sx={{ color: '#004d40' }}>
-              Contact Manager
+                Contact Manager
               </Typography>
               <Typography gutterBottom variant="body" component="div" sx={{ color: '#004d40' }}>
                 <b>Git: </b><Link to={'https://github.com/SagnikGhosh001/NodejsContactManager'} style={{ textDecoration: 'none', paddingRight: '10px' }}>Backend</Link>
-                
+
               </Typography>
               <Typography gutterBottom variant="body" component="div" sx={{ color: '#004d40' }}>
                 <ul>
@@ -186,7 +187,30 @@ function Projects() {
           </Card>
         </Grid>
       </Grid>
-
+      <Typography
+        gutterBottom
+        variant="h5"
+        component="div"
+        sx={{
+          color: '#1a237e', // A deep indigo for the text
+          paddingTop: '2%',
+        }}
+      >
+        Contact me if you like my project{' '}
+        <Link to="/contact" style={{ textDecoration: 'none' }}>
+          <Button
+            variant="contained"
+            sx={{
+              bgcolor: '#3949ab',
+              color: '#ffffff',
+              ':hover': { bgcolor: '#303f9f' }, 
+            }}
+            startIcon={<ContactMailIcon />}
+          >
+            Contact Me
+          </Button>
+        </Link>
+      </Typography>
     </Box>
   )
 }

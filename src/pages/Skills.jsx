@@ -1,5 +1,6 @@
-import { Box, Card, CardContent, Divider, Grid, LinearProgress, Typography } from '@mui/material';
+import { Box, Button, Card, CardContent, Divider, Grid, LinearProgress, Typography } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Skills() {
   const skills = {
@@ -35,17 +36,17 @@ function Skills() {
         variant="h3"
         sx={{ fontWeight: 'bold', marginBottom: '20px', color: '#004d40' }}
       >
-      
-       Skills
+
+        Skills
       </Typography>
       <Typography
         variant="body"
-        sx={{marginBottom: '20px', color: '#004d40' }}
+        sx={{ marginBottom: '20px', color: '#004d40' }}
       >
         My technical level
       </Typography>
       <Divider sx={{ marginBottom: '20px', borderColor: '#004d40', width: '60px' }} />
-      
+
       <Grid container spacing={4} alignItems="center" maxWidth="md">
         {/* Frameworks Card */}
         <Grid item xs={12} md={6}>
@@ -127,6 +128,30 @@ function Skills() {
           </Card>
         </Grid>
       </Grid>
+      <Typography
+        gutterBottom
+        variant="h5"
+        component="div"
+        sx={{
+          color: '#1a237e',
+          paddingTop: '2%',
+        }}
+      >
+        Check out my project{' '}
+        <Link to="/projects" style={{ textDecoration: 'none' }}>
+          <Button
+            variant="contained"
+            sx={{
+              bgcolor: '#3949ab', 
+              color: '#ffffff',
+              ':hover': { bgcolor: '#303f9f' }, 
+            }}
+            
+          >
+           Projects
+          </Button>
+        </Link>
+      </Typography>
     </Box>
   );
 }

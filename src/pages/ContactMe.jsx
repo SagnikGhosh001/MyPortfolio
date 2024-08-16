@@ -31,7 +31,7 @@ function ContactMe() {
             borderRadius: '8px',
           }}
         >
-          Contact Us
+          Contact Me
         </Typography>
         <Typography
           variant="body1"
