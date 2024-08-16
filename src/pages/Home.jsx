@@ -41,7 +41,13 @@ function Home() {
           '&:hover': { transform: 'scale(1.1)' },
         }}
       />
-      <Typography variant="h2" sx={{ fontWeight: 'bold', marginBottom: '20px', color: '#004d40' }}>
+      <Typography variant="h2"
+        sx={{
+          fontWeight: 'bold',
+          marginBottom: { xs: '10px', sm: '15px', md: '20px' },
+          color: '#004d40',
+          fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem', lg: '3rem' }
+        }}>
         SAGNIK GHOSH
       </Typography>
       <Divider sx={{ marginBottom: '20px', borderColor: '#004d40', width: '60px' }} />
@@ -67,14 +73,14 @@ function Home() {
             gap: '20px',
           }}
         >
-           <a href="https://github.com/SagnikGhosh001" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/SagnikGhosh001" target="_blank" rel="noopener noreferrer">
             <GitHub fontSize="large" sx={{ color: '#333' }} />
           </a>
           <a href="https://www.linkedin.com/in/sagnik-ghosh-445b86303/" target="_blank" rel="noopener noreferrer">
-             <LinkedIn fontSize="large" sx={{ color: '#0077b5' }} />
+            <LinkedIn fontSize="large" sx={{ color: '#0077b5' }} />
           </a>
           <a href="https://www.instagram.com/sagnik_ghosh_01?igsh=MWk4NGdnOGl3YmxpeQ==" target="_blank" rel="noopener noreferrer">
-          <Instagram fontSize="large" sx={{ color: '#e4405f' }} />
+            <Instagram fontSize="large" sx={{ color: '#e4405f' }} />
           </a>
         </Box>
       </Box>

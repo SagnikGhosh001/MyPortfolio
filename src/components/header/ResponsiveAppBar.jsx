@@ -16,7 +16,7 @@ import pic from '../../asset/pic.jpg'
 
 
 const resume_URL = 'https://sagnikghosh.netlify.app/SagnikGhoshResume.pdf'
-const pages = ['Home', 'About Me','Skills', 'Qualification', 'projects', 'Contact'];
+const pages = ['Home', 'About Me', 'Skills', 'Qualification', 'projects', 'Contact'];
 const settings = ['Resume'];
 
 function ResponsiveAppBar() {
@@ -134,8 +134,7 @@ function ResponsiveAppBar() {
                     <Typography
                         variant="h5"
                         noWrap
-                        component="a"
-                        href="#app-bar-with-responsive-menu"
+
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
@@ -147,7 +146,15 @@ function ResponsiveAppBar() {
                             textDecoration: 'none',
                         }}
                     >
-                        SAGNIK
+                        <Link to={'/'} style={{
+                            mr: 2,
+                            display: { xs: 'none', md: 'flex' },
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            letterSpacing: '.3rem',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}>SAGNIK</Link>
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (

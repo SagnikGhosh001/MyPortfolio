@@ -37,14 +37,14 @@ const About = () => {
       <Divider sx={{ marginBottom: '20px', borderColor: '#004d40', width: '60px' }} />
 
       <Grid container spacing={4} alignItems="center" maxWidth="md">
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
           <Box
             component="img"
             src={pic}
             alt="Sagnik Ghosh - Full Stack Developer"
             sx={{
               width: '100%',
-              maxWidth: '200px',
+              maxWidth: { xs: '150px', sm: '200px' },
               borderRadius: '10%',
               boxShadow: '0 6px 12px rgba(0, 0, 0, 0.2)',
               transition: 'transform 0.3s, box-shadow 0.3s',
