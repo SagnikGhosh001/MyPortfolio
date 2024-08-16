@@ -67,15 +67,15 @@ function Home() {
             gap: '20px',
           }}
         >
-          <Link href="https://github.com/SagnikGhosh001" target="_blank">
+           <a href="https://github.com/SagnikGhosh001" target="_blank" rel="noopener noreferrer">
             <GitHub fontSize="large" sx={{ color: '#333' }} />
-          </Link>
-          <Link href="https://www.linkedin.com/in/sagnik-ghosh-445b86303/" target="_blank">
-            <LinkedIn fontSize="large" sx={{ color: '#0077b5' }} />
-          </Link>
-          <Link href="https://www.instagram.com/sagnik_ghosh_01?igsh=MWk4NGdnOGl3YmxpeQ==" target="_blank">
-            <Instagram fontSize="large" sx={{ color: '#e4405f' }} />
-          </Link>
+          </a>
+          <a href="https://www.linkedin.com/in/sagnik-ghosh-445b86303/" target="_blank" rel="noopener noreferrer">
+             <LinkedIn fontSize="large" sx={{ color: '#0077b5' }} />
+          </a>
+          <a href="https://www.instagram.com/sagnik_ghosh_01?igsh=MWk4NGdnOGl3YmxpeQ==" target="_blank" rel="noopener noreferrer">
+          <Instagram fontSize="large" sx={{ color: '#e4405f' }} />
+          </a>
         </Box>
       </Box>
       <Button
