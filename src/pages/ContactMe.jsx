@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, IconButton, Divider, Box, Container, Grid } from '@mui/material';
+import { Typography, IconButton, Divider, Box, Container } from '@mui/material';
 import { Facebook, Instagram, LinkedIn, GitHub, Email } from '@mui/icons-material';
 
 function ContactMe() {
@@ -12,7 +12,6 @@ function ContactMe() {
         alignItems: 'center',
         padding: '40px',
         backgroundColor: '#e0f7fa',
-        backgroundImage: 'url("https://source.unsplash.com/random/1600x900?technology")', // Example background image
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: '#004d40',
@@ -25,8 +24,8 @@ function ContactMe() {
             fontWeight: 'bold',
             marginBottom: '20px',
             textAlign: 'center',
-            color: 'inherit',
-            backgroundColor: 'e0f7fa', 
+            color: '#004d40',
+            backgroundColor: '#e0f7fa',
             padding: '10px',
             borderRadius: '8px',
           }}
@@ -38,9 +37,10 @@ function ContactMe() {
           sx={{
             marginBottom: '20px',
             textAlign: 'center',
-            backgroundColor: 'e0f7fa', // Background for better readability
+            backgroundColor: '#e0f7fa',
             padding: '10px',
             borderRadius: '8px',
+            color: '#004d40',
           }}
         >
           Connect with me on social media:
@@ -57,55 +57,17 @@ function ContactMe() {
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            gap: '16px', // Space between icons
+            gap: '16px',
             marginBottom: '40px',
           }}
         >
-          <a href="https://www.facebook.com/sagnik.ghosh.31337" target="_blank" rel="noopener noreferrer">
-            <IconButton
-              sx={{
-                color: '#004d40',
-                '&:hover': {
-                  color: '#3b5998', // Facebook brand color on hover
-                },
-                fontSize: '2rem',
-              }}
-            >
-              <Facebook />
-            </IconButton>
-          </a>
-          <a href="https://www.instagram.com/sagnik_ghosh_01?igsh=MWk4NGdnOGl3YmxpeQ==" target="_blank" rel="noopener noreferrer">
-            <IconButton
-              sx={{
-                color: '#004d40',
-                '&:hover': {
-                  color: '#C13584', // Instagram brand color on hover
-                },
-                fontSize: '2rem',
-              }}
-            >
-              <Instagram />
-            </IconButton>
-          </a>
-          <a href="https://www.linkedin.com/in/sagnik-ghosh-445b86303/" target="_blank" rel="noopener noreferrer">
-            <IconButton
-              sx={{
-                color: '#004d40',
-                '&:hover': {
-                  color: '#0077b5', // LinkedIn brand color on hover
-                },
-                fontSize: '2rem',
-              }}
-            >
-              <LinkedIn />
-            </IconButton>
-          </a>
           <a href="mailto:sagnikghosh904@gmail.com" target="_blank" rel="noopener noreferrer">
             <IconButton
+              size="medium"
               sx={{
-                color: '#004d40',
+                color: '#d44638',
                 '&:hover': {
-                  color: '#d44638', // Gmail brand color on hover
+                  color: '#004d40',
                 },
                 fontSize: '2rem',
               }}
@@ -115,10 +77,11 @@ function ContactMe() {
           </a>
           <a href="https://github.com/SagnikGhosh001" target="_blank" rel="noopener noreferrer">
             <IconButton
+              size="medium"
               sx={{
-                color: '#004d40',
+                color: '#333',
                 '&:hover': {
-                  color: '#333', // GitHub brand color on hover
+                  color: '#004d40',
                 },
                 fontSize: '2rem',
               }}
@@ -126,6 +89,51 @@ function ContactMe() {
               <GitHub />
             </IconButton>
           </a>
+          <a href="https://www.linkedin.com/in/sagnik-ghosh-445b86303/" target="_blank" rel="noopener noreferrer">
+            <IconButton
+              size="medium"
+              sx={{
+                color: '#0077b5',
+                '&:hover': {
+                  color: '#004d40',
+                },
+                fontSize: '2rem',
+              }}
+            >
+              <LinkedIn />
+            </IconButton>
+          </a>
+          <a href="https://www.facebook.com/sagnik.ghosh.31337" target="_blank" rel="noopener noreferrer">
+            <IconButton
+              size="medium"
+              sx={{
+                color: '#3b5998',
+                '&:hover': {
+                  color: '#004d40',
+                },
+                fontSize: '2rem',
+              }}
+            >
+              <Facebook />
+            </IconButton>
+          </a>
+          <a href="https://www.instagram.com/sagnik_ghosh_01?igsh=MWk4NGdnOGl3YmxpeQ==" target="_blank" rel="noopener noreferrer">
+            <IconButton
+              size="medium"
+              sx={{
+                color: '#C13584',
+                '&:hover': {
+                  color: '#004d40',
+                },
+                fontSize: '2rem',
+              }}
+            >
+              <Instagram />
+            </IconButton>
+          </a>
+         
+
+
         </Box>
         <Typography variant="body1" sx={{ fontSize: '1.2rem', textAlign: 'center' }}>
           Email: <a href="mailto:sagnikghosh904@gmail.com" style={{ color: '#004d40' }}>sagnikghosh904@gmail.com</a>
@@ -134,7 +142,7 @@ function ContactMe() {
           sx={{
             marginTop: '40px',
             textAlign: 'center',
-            backgroundColor: 'e0f7fa', // Background for better readability
+            backgroundColor: '#e0f7fa',
             padding: '20px',
             borderRadius: '8px',
           }}
