@@ -52,7 +52,7 @@ function Home() {
       </Typography>
       <Divider sx={{ marginBottom: '20px', borderColor: '#004d40', width: '60px' }} />
       <Typography variant="body1" sx={{ maxWidth: '600px', margin: '0 auto', lineHeight: '1.6', color: '#00796b' }}>
-        I'm a creative software developer based in India, and I'm very passionate and dedicated to my work. My goal is to build innovative solutions that make a difference.
+        I'm a creative web developer based in India, and I'm very passionate and dedicated to my work. My goal is to build innovative solutions that make a difference.
       </Typography>
       <Box
         sx={{
