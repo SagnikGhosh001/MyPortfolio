@@ -14,23 +14,24 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import pic from '../../asset/pic.jpg'
 
-
-const resume_URL = 'https://sagnikghosh.netlify.app/SagnikGhoshResume.pdf'
+const resume_URL = 'https://sagnikghosh.netlify.app/SagnikGhoshResume.pdf';
 const pages = ['Home', 'About Me', 'Skills', 'Qualification', 'projects', 'Contact'];
 const settings = ['Resume'];
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+
     const downloadResume = (url) => {
-        const fileName = url.split('/').pop()
-        const aTag = document.createElement('a')
-        aTag.href = url
-        aTag.setAttribute('download', fileName)
-        document.body.appendChild(aTag)
-        aTag.click()
-        aTag.remove()
-    }
+        const fileName = url.split('/').pop();
+        const aTag = document.createElement('a');
+        aTag.href = url;
+        aTag.setAttribute('download', fileName);
+        document.body.appendChild(aTag);
+        aTag.click();
+        aTag.remove();
+    };
+
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -47,32 +48,26 @@ function ResponsiveAppBar() {
     };
 
     return (
-        <AppBar position="static" style={{ backgroundColor: 'black' }}>
+        <AppBar position="static" style={{ backgroundColor: '#e0f7fa', color: 'black' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+                    
                     <Typography
                         variant="h6"
                         noWrap
-
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
-                            color: 'inherit',
+                            color: 'black', 
                             textDecoration: 'none',
                         }}
                     >
                         <Link to={'/'} style={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
                             textDecoration: 'none',
+                            color: 'black',
                         }}>SAGNIK</Link>
                     </Typography>
 
@@ -107,34 +102,22 @@ function ResponsiveAppBar() {
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">
-                                        {page !== 'Home' &&
-                                            <Link to={page.toLowerCase().replace(' ', '')}
-                                                style={{
-                                                    textDecoration: 'none',
-                                                    color: 'inherit',
-                                                }}
-                                            >{page}</Link>
-                                        }
-                                        {page === 'Home' &&
-                                            <Link to={'/'}
-                                                style={{
-                                                    textDecoration: 'none',
-                                                    color: 'inherit',
-                                                }}
-                                            >{page}</Link>
-                                        }
-
+                                    <Typography textAlign="center" sx={{ color: 'black' }}>
+                                        <Link to={page === 'Home' ? '/' : page.toLowerCase().replace(' ', '')}
+                                            style={{
+                                                textDecoration: 'none',
+                                                color: 'black', 
+                                            }}
+                                        >{page}</Link>
                                     </Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
-                    {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
+
                     <Typography
                         variant="h5"
                         noWrap
-
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
@@ -142,44 +125,29 @@ function ResponsiveAppBar() {
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
-                            color: 'inherit',
+                            color: 'black',
                             textDecoration: 'none',
                         }}
                     >
                         <Link to={'/'} style={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
                             textDecoration: 'none',
+                            color: 'black', 
                         }}>SAGNIK</Link>
                     </Typography>
+
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: 'black' }} 
                             >
-                                {page !== 'Home' &&
-                                    <Link to={page.toLowerCase().replace(' ', '')}
-                                        style={{
-                                            textDecoration: 'none',
-                                            color: 'inherit',
-                                        }}
-                                    >{page}</Link>
-                                }
-                                {page === 'Home' &&
-                                    <Link to={'/'}
-                                        style={{
-                                            textDecoration: 'none',
-                                            color: 'inherit',
-                                        }}
-                                    >{page}</Link>
-                                }
-
+                                <Link to={page === 'Home' ? '/' : page.toLowerCase().replace(' ', '')}
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: 'black', 
+                                    }}
+                                >{page}</Link>
                             </Button>
                         ))}
                     </Box>
@@ -214,13 +182,13 @@ function ResponsiveAppBar() {
                                         if (setting === 'Resume') {
                                             downloadResume(resume_URL);
                                         }
-                                    }}>
-                                    <Typography textAlign="center">
+                                    }}
+                                >
+                                    <Typography textAlign="center" sx={{ color: 'black' }}>
                                         {setting}
                                     </Typography>
                                 </MenuItem>
                             ))}
-
                         </Menu>
                     </Box>
                 </Toolbar>
@@ -228,4 +196,5 @@ function ResponsiveAppBar() {
         </AppBar>
     );
 }
+
 export default ResponsiveAppBar;
