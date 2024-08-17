@@ -142,13 +142,13 @@ function Skills() {
           <Button
             variant="contained"
             sx={{
-              bgcolor: '#3949ab', 
+              bgcolor: '#3949ab',
               color: '#ffffff',
-              ':hover': { bgcolor: '#303f9f' }, 
+              ':hover': { bgcolor: '#303f9f' },
             }}
-            
+
           >
-           Projects
+            Projects
           </Button>
         </Link>
       </Typography>
