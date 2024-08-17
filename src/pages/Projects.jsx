@@ -21,6 +21,7 @@ function Projects() {
           fontWeight: 'bold',
           marginBottom: '20px',
           color: '#004d40',
+          textAlign:'center'
         }}
       >
         Projects
@@ -30,6 +31,7 @@ function Projects() {
         sx={{
           marginBottom: '20px',
           color: '#004d40',
+          textAlign: 'center',
         }}
       >
         My personal projects
@@ -41,9 +43,9 @@ function Projects() {
           width: '60px',
         }}
       />
-      <Grid container spacing={4} alignItems="center" maxWidth="md">
+      <Grid container spacing={4} alignItems="center"  maxWidth="lg">
         {/* Frameworks Card */}
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} sm={6}>
           <Card
             sx={{
               maxWidth: 500,
@@ -83,7 +85,7 @@ function Projects() {
         </Grid>
 
 
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} sm={6}>
           <Card
             sx={{
               maxWidth: 500,
@@ -118,7 +120,7 @@ function Projects() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} sm={6}>
           <Card
             sx={{
               maxWidth: 500,
@@ -152,7 +154,7 @@ function Projects() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} sm={6}>
           <Card
             sx={{
               maxWidth: 500,

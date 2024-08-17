@@ -34,14 +34,15 @@ function Skills() {
     >
       <Typography
         variant="h3"
-        sx={{ fontWeight: 'bold', marginBottom: '20px', color: '#004d40' }}
+        sx={{ fontWeight: 'bold', marginBottom: '20px', color: '#004d40',textAlign:'center' }}
       >
 
         Skills
       </Typography>
       <Typography
         variant="body"
-        sx={{ marginBottom: '20px', color: '#004d40' }}
+        sx={{ marginBottom: '20px', color: '#004d40',textAlign:'center' }}
+        
       >
         My technical level
       </Typography>
@@ -49,7 +50,7 @@ function Skills() {
 
       <Grid container spacing={4} alignItems="center" maxWidth="md">
         {/* Frameworks Card */}
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} sm={6}>
           <Card
             sx={{
               maxWidth: 345,
@@ -89,7 +90,7 @@ function Skills() {
         </Grid>
 
         {/* Programming Languages Card */}
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} sm={6}>
           <Card
             sx={{
               maxWidth: 345,
