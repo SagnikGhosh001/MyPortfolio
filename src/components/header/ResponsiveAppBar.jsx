@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 import pic from '../../asset/pic.jpg'
 
 const resume_URL = 'https://sagnikghosh.netlify.app/SagnikGhoshResume.pdf';
-const pages = ['Home', 'About Me', 'Skills', 'Qualification', 'projects', 'Contact'];
+const pages = ['Home', 'About Me', 'Skills', 'Qualification', 'Projects', 'Contact'];
 const settings = ['Resume'];
 
 function ResponsiveAppBar() {
