@@ -7,26 +7,41 @@ import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import DownloadIcon from '@mui/icons-material/Download';
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import { Link } from 'react-router-dom';
+
+
 function Qualification() {
-    const certificate_URL = 'https://sagnikghosh.netlify.app/Internship_Certificate.pdf';
+    
     const [value, setValue] = React.useState('1');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-    const downloadCertificate = (url) => {
-        const fileName = url.split('/').pop();
-        const aTag = document.createElement('a');
-        aTag.href = url;
-        aTag.setAttribute('download', fileName);
-        document.body.appendChild(aTag);
-        aTag.click();
-        aTag.remove();
-        
-        
+    const certificate_URL = 'https://sagnikghosh.netlify.app/InternshipCertificate.pdf';
+    const downloadCertificate = async (url) => {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Network response was not ok.');
+            }
+    
+            const blob = await response.blob();
+            const fileName = url.split('/').pop();
+            const aTag = document.createElement('a');
+            const urlObject = URL.createObjectURL(blob);
+            
+            aTag.href = urlObject;
+            aTag.setAttribute('download', fileName);
+            document.body.appendChild(aTag);
+            aTag.click();
+    
+            // Clean up
+            URL.revokeObjectURL(urlObject);
+            aTag.remove();
+        } catch (error) {
+            console.error('Download failed:', error);
+        }
     };
-
     return (
         <Box
             sx={{
@@ -243,7 +258,7 @@ function Qualification() {
                         To leverage my experience gained through the internship at YSS Company, where I acquired practical skills in frontend and backend development,
                         including HTML, CSS, Django, Bootstrap, and DBMS.
                     </Typography>
-                    <Button
+                    {/* <Button
                         variant="contained"
                         color="primary"
                         startIcon={<DownloadIcon />}
@@ -256,12 +271,10 @@ function Qualification() {
                                 backgroundColor: '#115293'
                             }
                         }}
-                        href="path/to/your/certificate.pdf"
-                        download
-                        onClick={() => downloadCertificate(certificate_URL)}
+                        onClick={() => {downloadCertificate(certificate_URL)}}
                     >
                         Download Certificate
-                    </Button>
+                    </Button> */}
                 </TabPanel>
 
             </TabContext>
