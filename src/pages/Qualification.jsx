@@ -8,7 +8,7 @@ import DownloadIcon from '@mui/icons-material/Download';
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import { Link } from 'react-router-dom';
 function Qualification() {
-    const certificate_URL = 'https://sagnikghosh.netlify.app/Internship_Certificate.png';
+    const certificate_URL = 'https://sagnikghosh.netlify.app/Internship_Certificate.pdf';
     const [value, setValue] = React.useState('1');
 
     const handleChange = (event, newValue) => {
@@ -23,6 +23,8 @@ function Qualification() {
         document.body.appendChild(aTag);
         aTag.click();
         aTag.remove();
+        
+        
     };
 
     return (
