@@ -61,12 +61,12 @@ function Projects() {
 
       {/* Projects Grid */}
       <Grid container spacing={4} justifyContent="center" maxWidth="lg">
-        {/* Project 1: Student Management System */}
+        {/* Project 1: Virtual Academy */}
         <Grid item xs={12} md={6}>
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 1.5 }}
+            transition={{ duration: 1, delay: 3.0 }}
           >
             <Box
               sx={{
@@ -81,31 +81,31 @@ function Projects() {
               }}
             >
               <Typography gutterBottom variant="h5" sx={{ color: '#004d40' }}>
-                Student Management System
+                Virtual Academy
               </Typography>
               <Typography gutterBottom variant="body2" sx={{ color: '#004d40' }}>
-                <Link to={'https://ourstudentmanagement.netlify.app/'} style={{ textDecoration: 'none' }}>
-                  https://ourstudentmanagement.netlify.app/
+                <Link to={'https://virtualacademy.netlify.app/'} style={{ textDecoration: 'none' }}>
+                  https://virtualacademy.netlify.app/
                 </Link>
                 <br />
                 <b>Git: </b>
-                <Link to={'https://github.com/SagnikGhosh001/studentManagement'} style={{ textDecoration: 'none', paddingRight: '10px' }}>
+                <Link to={'https://github.com/SagnikGhosh001/virtual-academy-backend'} style={{ textDecoration: 'none', paddingRight: '10px' }}>
                   Backend
                 </Link>
-                <Link to={'https://github.com/SagnikGhosh001/React_studentManagement'} style={{ textDecoration: 'none' }}>
+                <Link to={'https://github.com/SagnikGhosh001/virtual-academy-frontend'} style={{ textDecoration: 'none' }}>
                   Frontend
                 </Link>
               </Typography>
               <Typography variant="body2" sx={{ color: '#004d40' }}>
                 <ul>
                   <li>
-                    <b>Features:</b> Allows students to download available courses and enables administrators to upload and manage course content.
+                    <b>Features:</b> Allows teachers to upload and manage notes by semester and department, assign and track assignments, and take attendance.
                   </li>
                   <li>
-                    <b>User Functions:</b> Provides a user-friendly interface for students to access and download course materials, while offering administrators efficient tools for course uploads and management.
+                    <b>User Functions:</b> Enables students and teachers to create and update profiles, access educational materials, and receive OTP-based verification for enhanced security.
                   </li>
                   <li>
-                    <b>Framework Used:</b> Spring Boot, React js.
+                    <b>Framework Used:</b> Spring Boot, React Js.
                   </li>
                 </ul>
               </Typography>
@@ -137,6 +137,10 @@ function Projects() {
               </Typography>
               <Typography gutterBottom variant="body2" sx={{ color: '#004d40' }}>
                 {/* Add your GitHub link here if available */}
+                <Link to={'https://mystery-feedback-using-next-js.vercel.app/'} style={{ textDecoration: 'none' }}>
+                  https://mystery-feedback-using-next-js.vercel.app/
+                </Link>
+                <br />
                 <b>Git: </b>
                 <Link to={'https://github.com/SagnikGhosh001/mysteryFeedbackUsingNextJs'} style={{ textDecoration: 'none', paddingRight: '10px' }}>
                   Repository
@@ -204,13 +208,12 @@ function Projects() {
             </Box>
           </motion.div>
         </Grid>
-
-        {/* Project 4: Virtual Academy */}
+        {/* Project 1: Student Management System */}
         <Grid item xs={12} md={6}>
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 3.0 }}
+            transition={{ duration: 1, delay: 1.5 }}
           >
             <Box
               sx={{
@@ -225,37 +228,38 @@ function Projects() {
               }}
             >
               <Typography gutterBottom variant="h5" sx={{ color: '#004d40' }}>
-                Virtual Academy
+                Student Management System
               </Typography>
               <Typography gutterBottom variant="body2" sx={{ color: '#004d40' }}>
-                <Link to={'https://virtualacademy.netlify.app/'} style={{ textDecoration: 'none' }}>
-                  https://virtualacademy.netlify.app/
+                <Link to={'https://ourstudentmanagement.netlify.app/'} style={{ textDecoration: 'none' }}>
+                  https://ourstudentmanagement.netlify.app/
                 </Link>
                 <br />
                 <b>Git: </b>
-                <Link to={'https://github.com/SagnikGhosh001/virtual-academy-backend'} style={{ textDecoration: 'none', paddingRight: '10px' }}>
+                <Link to={'https://github.com/SagnikGhosh001/studentManagement'} style={{ textDecoration: 'none', paddingRight: '10px' }}>
                   Backend
                 </Link>
-                <Link to={'https://github.com/SagnikGhosh001/virtual-academy-frontend'} style={{ textDecoration: 'none' }}>
+                <Link to={'https://github.com/SagnikGhosh001/React_studentManagement'} style={{ textDecoration: 'none' }}>
                   Frontend
                 </Link>
               </Typography>
               <Typography variant="body2" sx={{ color: '#004d40' }}>
                 <ul>
                   <li>
-                    <b>Features:</b> Allows teachers to upload and manage notes by semester and department, assign and track assignments, and take attendance.
+                    <b>Features:</b> Allows students to download available courses and enables administrators to upload and manage course content.
                   </li>
                   <li>
-                    <b>User Functions:</b> Enables students and teachers to create and update profiles, access educational materials, and receive OTP-based verification for enhanced security.
+                    <b>User Functions:</b> Provides a user-friendly interface for students to access and download course materials, while offering administrators efficient tools for course uploads and management.
                   </li>
                   <li>
-                    <b>Framework Used:</b> Spring Boot, React Js.
+                    <b>Framework Used:</b> Spring Boot, React js.
                   </li>
                 </ul>
               </Typography>
             </Box>
           </motion.div>
         </Grid>
+
 
         {/* Project 5: Food Blogging Website */}
         <Grid item xs={12} md={6}>
@@ -347,7 +351,7 @@ function Projects() {
           </motion.div>
         </Grid>
 
-        
+
       </Grid>
 
       {/* Contact Me Section */}
