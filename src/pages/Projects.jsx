@@ -66,7 +66,7 @@ function Projects() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 3.0 }}
+            transition={{ duration: 1, delay: 1.5 }}
           >
             <Box
               sx={{
@@ -208,12 +208,12 @@ function Projects() {
             </Box>
           </motion.div>
         </Grid>
-        {/* Project 1: Student Management System */}
+        {/* Project 4: Student Management System */}
         <Grid item xs={12} md={6}>
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 1.5 }}
+            transition={{ duration: 1, delay: 3.0 }}
           >
             <Box
               sx={{
