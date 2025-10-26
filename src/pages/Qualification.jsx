@@ -197,7 +197,7 @@ function Qualification() {
                                 <li>3rd Semester: GPA 9.2, Percentage 90.0%</li>
                                 <li>4th Semester: GPA 9.4, Percentage 92.3%</li>
                                 <li>5th Semester: GPA 10, Percentage 95%</li>
-                                <li>Currently in 6th Semester</li>
+                                <li>6th Semester: GPA 9.5, Percentage 91.8%</li>
                             </ul>
                         </Typography>
                     </TabPanel>
