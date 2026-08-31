@@ -1,200 +1,404 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom';
-import pic from '../../asset/pic.jpg'
 
-const resume_URL = 'https://sagnikghosh.netlify.app/SagnikGhoshResume.pdf';
-const pages = ['Home', 'About Me', 'Skills', 'Qualification', 'Projects', 'Contact'];
-const settings = ['Resume'];
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Toolbar,
+  Typography,
+} from '@mui/material';
+
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import DownloadIcon from '@mui/icons-material/Download';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+
+import { Link, useLocation } from 'react-router-dom';
+
+const resume_URL =
+  'https://sagnikghosh.netlify.app/SagnikGhoshResume.pdf';
+
+const navigation = [
+  {
+    label: 'Home',
+    path: '/',
+  },
+  {
+    label: 'About',
+    path: '/aboutme',
+  },
+  {
+    label: 'Skills',
+    path: '/skills',
+  },
+  {
+    label: 'Qualification',
+    path: '/qualification',
+  },
+  {
+    label: 'Projects',
+    path: '/projects',
+  },
+];
 
 function ResponsiveAppBar() {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
-    const downloadResume = (url) => {
-        const fileName = url.split('/').pop();
-        const aTag = document.createElement('a');
-        aTag.href = url;
-        aTag.setAttribute('download', fileName);
-        document.body.appendChild(aTag);
-        aTag.click();
-        aTag.remove();
-    };
+  const location = useLocation();
 
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
+  const downloadResume = () => {
+    const fileName = resume_URL.split('/').pop();
 
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
+    const aTag = document.createElement('a');
+    aTag.href = resume_URL;
+    aTag.setAttribute('download', fileName);
 
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
+    document.body.appendChild(aTag);
+    aTag.click();
+    aTag.remove();
+  };
 
-    return (
-        <AppBar position="static" style={{ backgroundColor: '#e0f7fa', color: 'black' }}>
-            <Container maxWidth="xl">
-                <Toolbar disableGutters>
-                    
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'black', 
-                            textDecoration: 'none',
-                        }}
-                    >
-                        <Link to={'/'} style={{
-                            textDecoration: 'none',
-                            color: 'black',
-                        }}>SAGNIK</Link>
-                    </Typography>
+  const handleDrawerToggle = () => {
+    setMobileOpen((previous) => !previous);
+  };
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
-                            }}
-                        >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center" sx={{ color: 'black' }}>
-                                        <Link to={page === 'Home' ? '/' : page.toLowerCase().replace(' ', '')}
-                                            style={{
-                                                textDecoration: 'none',
-                                                color: 'black', 
-                                            }}
-                                        >{page}</Link>
-                                    </Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
+  const isActive = (path) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
 
-                    <Typography
-                        variant="h5"
-                        noWrap
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
-                            flexGrow: 1,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'black',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        <Link to={'/'} style={{
-                            textDecoration: 'none',
-                            color: 'black', 
-                        }}>SAGNIK</Link>
-                    </Typography>
+    return location.pathname === path;
+  };
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'black' }} 
-                            >
-                                <Link to={page === 'Home' ? '/' : page.toLowerCase().replace(' ', '')}
-                                    style={{
-                                        textDecoration: 'none',
-                                        color: 'black', 
-                                    }}
-                                >{page}</Link>
-                            </Button>
-                        ))}
-                    </Box>
+  return (
+    <>
+      <AppBar
+        position="sticky"
+        elevation={0}
+        sx={{
+          top: 0,
+          zIndex: 1100,
+          backgroundColor: 'rgba(255, 255, 255, 0.88)',
+          backdropFilter: 'blur(14px)',
+          borderBottom: '1px solid #e6ebed',
+        }}
+      >
+        <Container maxWidth="lg">
+          <Toolbar
+            disableGutters
+            sx={{
+              minHeight: '70px !important',
+              justifyContent: 'space-between',
+            }}
+          >
+            {/* Logo */}
+            <Typography
+              component={Link}
+              to="/"
+              sx={{
+                textDecoration: 'none',
+                color: '#004d40',
+                fontSize: '1.35rem',
+                fontWeight: 800,
+                letterSpacing: '-0.5px',
+                mr: 4,
+              }}
+            >
+              Sagnik
+            </Typography>
 
-                    <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Resume">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Sagnik" src={pic} />
-                            </IconButton>
-                        </Tooltip>
-                        <Menu
-                            sx={{ mt: '45px' }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
-                        >
-                            {settings.map((setting) => (
-                                <MenuItem
-                                    key={setting}
-                                    onClick={() => {
-                                        handleCloseUserMenu();
-                                        if (setting === 'Resume') {
-                                            downloadResume(resume_URL);
-                                        }
-                                    }}
-                                >
-                                    <Typography textAlign="center" sx={{ color: 'black' }}>
-                                        {setting}
-                                    </Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
-                </Toolbar>
-            </Container>
-        </AppBar>
-    );
+            {/* Desktop Navigation */}
+            <Box
+              sx={{
+                display: {
+                  xs: 'none',
+                  md: 'flex',
+                },
+                alignItems: 'center',
+                gap: 0.5,
+                flexGrow: 1,
+              }}
+            >
+              {navigation.map((item) => {
+                const active = isActive(item.path);
+
+                return (
+                  <Button
+                    key={item.path}
+                    component={Link}
+                    to={item.path}
+                    sx={{
+                      position: 'relative',
+                      px: 1.6,
+                      py: 1,
+                      borderRadius: '8px',
+                      color: active ? '#004d40' : '#607078',
+                      textTransform: 'none',
+                      fontSize: '0.92rem',
+                      fontWeight: active ? 700 : 500,
+
+                      '&:hover': {
+                        backgroundColor: '#f0f5f5',
+                        color: '#004d40',
+                      },
+
+                      '&::after': active
+                        ? {
+                            content: '""',
+                            position: 'absolute',
+                            bottom: '4px',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            width: '18px',
+                            height: '2px',
+                            borderRadius: '5px',
+                            backgroundColor: '#00897b',
+                          }
+                        : {},
+                    }}
+                  >
+                    {item.label}
+                  </Button>
+                );
+              })}
+            </Box>
+
+            {/* Desktop Actions */}
+            <Box
+              sx={{
+                display: {
+                  xs: 'none',
+                  md: 'flex',
+                },
+                alignItems: 'center',
+                gap: 1,
+              }}
+            >
+              <Button
+                onClick={downloadResume}
+                startIcon={<DownloadIcon />}
+                sx={{
+                  px: 1.8,
+                  py: 1,
+                  borderRadius: '8px',
+                  color: '#455a64',
+                  textTransform: 'none',
+                  fontWeight: 600,
+
+                  '&:hover': {
+                    backgroundColor: '#f0f5f5',
+                    color: '#004d40',
+                  },
+                }}
+              >
+                Resume
+              </Button>
+
+              <Button
+                component={Link}
+                to="/contact"
+                variant="contained"
+                startIcon={<ContactMailIcon />}
+                sx={{
+                  px: 2,
+                  py: 1,
+                  borderRadius: '8px',
+                  backgroundColor: '#004d40',
+                  color: '#ffffff',
+                  textTransform: 'none',
+                  fontWeight: 700,
+                  boxShadow: 'none',
+
+                  '&:hover': {
+                    backgroundColor: '#00695c',
+                    boxShadow: 'none',
+                  },
+                }}
+              >
+                Contact
+              </Button>
+            </Box>
+
+            {/* Mobile Menu Button */}
+            <IconButton
+              onClick={handleDrawerToggle}
+              aria-label="open navigation menu"
+              sx={{
+                display: {
+                  xs: 'flex',
+                  md: 'none',
+                },
+                color: '#004d40',
+                border: '1px solid #dfe5e9',
+                borderRadius: '8px',
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Toolbar>
+        </Container>
+      </AppBar>
+
+      {/* Mobile Drawer */}
+      <Drawer
+        anchor="right"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        PaperProps={{
+          sx: {
+            width: {
+              xs: '85%',
+              sm: '360px',
+            },
+            backgroundColor: '#f7f9fc',
+          },
+        }}
+      >
+        {/* Drawer Header */}
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            px: 3,
+            py: 2,
+            borderBottom: '1px solid #dfe5e9',
+          }}
+        >
+          <Typography
+            sx={{
+              fontWeight: 800,
+              fontSize: '1.25rem',
+              color: '#004d40',
+            }}
+          >
+            Sagnik.
+          </Typography>
+
+          <IconButton
+            onClick={handleDrawerToggle}
+            sx={{
+              color: '#455a64',
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </Box>
+
+        {/* Navigation */}
+        <List sx={{ px: 2, py: 3 }}>
+          {navigation.map((item) => {
+            const active = isActive(item.path);
+
+            return (
+              <ListItem
+                key={item.path}
+                disablePadding
+                sx={{ mb: 0.5 }}
+              >
+                <ListItemButton
+                  component={Link}
+                  to={item.path}
+                  onClick={handleDrawerToggle}
+                  sx={{
+                    borderRadius: '9px',
+                    py: 1.4,
+                    backgroundColor: active
+                      ? '#e0f2f1'
+                      : 'transparent',
+
+                    '&:hover': {
+                      backgroundColor: '#e0f2f1',
+                    },
+                  }}
+                >
+                  <ListItemText
+                    primary={item.label}
+                    primaryTypographyProps={{
+                      fontWeight: active ? 700 : 500,
+                      color: active
+                        ? '#004d40'
+                        : '#455a64',
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            );
+          })}
+        </List>
+
+        <Divider sx={{ mx: 3 }} />
+
+        {/* Mobile Actions */}
+        <Box
+          sx={{
+            px: 3,
+            py: 3,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 1.5,
+          }}
+        >
+          <Button
+            fullWidth
+            variant="outlined"
+            startIcon={<DownloadIcon />}
+            onClick={() => {
+              handleDrawerToggle();
+              downloadResume();
+            }}
+            sx={{
+              py: 1.3,
+              borderRadius: '9px',
+              color: '#004d40',
+              borderColor: '#004d40',
+              textTransform: 'none',
+              fontWeight: 700,
+
+              '&:hover': {
+                borderColor: '#00695c',
+                backgroundColor: '#e0f2f1',
+              },
+            }}
+          >
+            Download Resume
+          </Button>
+
+          <Button
+            fullWidth
+            component={Link}
+            to="/contact"
+            variant="contained"
+            startIcon={<ContactMailIcon />}
+            onClick={handleDrawerToggle}
+            sx={{
+              py: 1.3,
+              borderRadius: '9px',
+              backgroundColor: '#004d40',
+              textTransform: 'none',
+              fontWeight: 700,
+              boxShadow: 'none',
+
+              '&:hover': {
+                backgroundColor: '#00695c',
+                boxShadow: 'none',
+              },
+            }}
+          >
+            Contact Me
+          </Button>
+        </Box>
+      </Drawer>
+    </>
+  );
 }
 
 export default ResponsiveAppBar;

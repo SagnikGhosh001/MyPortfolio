@@ -1,18 +1,33 @@
 import React from 'react';
-import { Typography, Box, Button, Divider } from '@mui/material';
-import { GitHub, LinkedIn, Instagram, Download as DownloadIcon } from '@mui/icons-material';
+import {
+  Box,
+  Button,
+  Chip,
+  Typography,
+} from '@mui/material';
+
+import {
+  GitHub,
+  LinkedIn,
+  Instagram,
+  Download as DownloadIcon,
+  ArrowOutward,
+} from '@mui/icons-material';
+
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import pic from '../asset/pic.jpg';
 
 function Home() {
-  const resume_URL = 'https://sagnikghosh.netlify.app/SagnikGhoshResume.pdf';
+  const resume_URL =
+    'https://sagnikghosh.netlify.app/SagnikGhoshResume.pdf';
 
   const downloadResume = (url) => {
     const fileName = url.split('/').pop();
+
     const aTag = document.createElement('a');
     aTag.href = url;
     aTag.setAttribute('download', fileName);
+
     document.body.appendChild(aTag);
     aTag.click();
     aTag.remove();
@@ -21,137 +36,273 @@ function Home() {
   return (
     <Box
       sx={{
-        minHeight: '100vh',
+        minHeight: 'calc(100vh - 70px)',
+        width: '100%',
+        boxSizing: 'border-box',
+        background: '#f7f9fc',
         display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
-        padding: '20px',
-        backgroundColor: '#e0f7fa',
+        px: { xs: 2, sm: 4, md: 8 },
+        py: { xs: 6, md: 8 },
       }}
     >
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+      <Box
+        sx={{
+          width: '100%',
+          maxWidth: '1000px',
+          mx: 'auto',
+        }}
       >
-        <Box
-          component="img"
-          src={pic}
-          alt="Sagnik Ghosh"
-          sx={{
-            width: '150px',
-            borderRadius: '50%',
-            boxShadow: '0 6px 12px rgba(0, 0, 0, 0.2)',
-            marginBottom: '20px',
-            transition: 'transform 0.3s',
-            '&:hover': { transform: 'scale(1.1)' },
-          }}
-        />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      >
-        <Typography variant="h2"
-          sx={{
-            fontWeight: 'bold',
-            marginBottom: { xs: '10px', sm: '15px', md: '20px' },
-            color: '#004d40',
-            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem', lg: '3rem' }
-          }}>
-          SAGNIK GHOSH
-        </Typography>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1 }}
-      >
-        <Divider sx={{ marginBottom: '20px', borderColor: '#004d40', width: '60px' }} />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1.5 }}
-      >
-        <Typography variant="body1" sx={{ maxWidth: '600px', margin: '0 auto', lineHeight: '1.6', color: '#00796b' }}>
-          As a passionate software developer from India, I thrive on crafting cutting-edge digital solutions that truly stand out. My commitment to innovation and excellence drives me to create impactful web experiences that push boundaries and make a meaningful difference.
-        </Typography>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 2 }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '20px',
-            marginTop: '30px',
-          }}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
         >
-          <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom: '20px' }}>
-            Connect with me
+          {/* Small Label */}
+          <Typography
+            sx={{
+              fontSize: '0.85rem',
+              fontWeight: 700,
+              letterSpacing: '3px',
+              textTransform: 'uppercase',
+              color: '#00897b',
+              mb: 2,
+            }}
+          >
+            Hello, I'm
           </Typography>
+
+          {/* Name */}
+          <Typography
+            component="h1"
+            sx={{
+              fontSize: {
+                xs: '3.2rem',
+                sm: '4.5rem',
+                md: '6rem',
+              },
+              fontWeight: 800,
+              lineHeight: 0.95,
+              letterSpacing: '-3px',
+              color: '#17202a',
+              mb: 2,
+            }}
+          >
+            Sagnik
+            <Box
+              component="span"
+              sx={{
+                color: '#004d40',
+              }}
+            >
+              {' '}Ghosh.
+            </Box>
+          </Typography>
+
+          {/* Role */}
+          <Typography
+            sx={{
+              fontSize: {
+                xs: '1.3rem',
+                md: '1.7rem',
+              },
+              fontWeight: 600,
+              color: '#455a64',
+              mb: 2.5,
+            }}
+          >
+            AI & Full-Stack Developer
+          </Typography>
+
+          {/* Introduction */}
+          <Typography
+            sx={{
+              maxWidth: '700px',
+              color: '#68737d',
+              fontSize: {
+                xs: '1rem',
+                md: '1.1rem',
+              },
+              lineHeight: 1.8,
+              mb: 3,
+            }}
+          >
+            I build intelligent applications by combining AI,
+            modern web technologies, and scalable backend systems.
+            I enjoy working with AI Agents, RAG, Computer Vision,
+            and full-stack development.
+          </Typography>
+
+          {/* Buttons */}
           <Box
             sx={{
               display: 'flex',
-              flexDirection: 'row',
-              gap: '20px',
+              gap: 1.5,
+              flexWrap: 'wrap',
+              mb: 5,
             }}
           >
-            <a href="https://github.com/SagnikGhosh001" target="_blank" rel="noopener noreferrer">
-              <GitHub fontSize="large" sx={{ color: '#333' }} />
-            </a>
-            <a href="https://www.linkedin.com/in/sagnik-ghosh-445b86303/" target="_blank" rel="noopener noreferrer">
-              <LinkedIn fontSize="large" sx={{ color: '#0077b5' }} />
-            </a>
-            <a href="https://www.instagram.com/sagnik_ghosh_01?igsh=MWk4NGdnOGl3YmxpeQ==" target="_blank" rel="noopener noreferrer">
-              <Instagram fontSize="large" sx={{ color: '#e4405f' }} />
-            </a>
-          </Box>
-        </Box>
-      </motion.div>
+            <Button
+              component={Link}
+              to="/projects"
+              variant="contained"
+              endIcon={<ArrowOutward />}
+              sx={{
+                px: 3,
+                py: 1.3,
+                borderRadius: '9px',
+                backgroundColor: '#004d40',
+                textTransform: 'none',
+                fontWeight: 700,
+                boxShadow: 'none',
 
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 2.5 }}
-      >
-        <Box sx={{ display: 'flex', gap: 2, mt: 4 }}>
-          <Button
-            component={Link}
-            to='/aboutme'
-            variant="contained"
+                '&:hover': {
+                  backgroundColor: '#00695c',
+                  boxShadow: 'none',
+                },
+              }}
+            >
+              View Projects
+            </Button>
+
+            <Button
+              variant="outlined"
+              startIcon={<DownloadIcon />}
+              onClick={() => downloadResume(resume_URL)}
+              sx={{
+                px: 2.5,
+                py: 1.3,
+                borderRadius: '9px',
+                color: '#004d40',
+                borderColor: '#004d40',
+                textTransform: 'none',
+                fontWeight: 700,
+
+                '&:hover': {
+                  borderColor: '#00695c',
+                  backgroundColor: '#e0f2f1',
+                },
+              }}
+            >
+              Download Resume
+            </Button>
+
+            <Button
+              component={Link}
+              to="/contact"
+              variant="text"
+              sx={{
+                px: 2,
+                py: 1.3,
+                borderRadius: '9px',
+                color: '#455a64',
+                textTransform: 'none',
+                fontWeight: 700,
+
+                '&:hover': {
+                  backgroundColor: '#eef2f3',
+                  color: '#004d40',
+                },
+              }}
+            >
+              Contact Me
+            </Button>
+          </Box>
+
+          {/* Social Links */}
+          <Box
             sx={{
-              bgcolor: '#004d40',
-              color: '#ffffff',
-              ':hover': { bgcolor: '#00332a' },
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1,
             }}
           >
-            About Me
-          </Button>
-          <Button
-            variant="contained"
-            startIcon={<DownloadIcon />}
-            onClick={() => downloadResume(resume_URL)}
-            sx={{
-              bgcolor: '#004d40',
-              color: '#ffffff',
-              ':hover': { bgcolor: '#00332a' },
-            }}
-          >
-            Download Resume
-          </Button>
-        </Box>
-      </motion.div>
+            <Typography
+              sx={{
+                color: '#90a4ae',
+                fontSize: '0.8rem',
+                mr: 1,
+                letterSpacing: '1px',
+                textTransform: 'uppercase',
+              }}
+            >
+              Find me
+            </Typography>
+
+            <Box
+              component="a"
+              href="https://github.com/SagnikGhosh001"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                width: 38,
+                height: 38,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                border: '1px solid #dfe5e9',
+                borderRadius: '9px',
+                color: '#263238',
+                transition: 'all 0.25s ease',
+                '&:hover': {
+                  backgroundColor: '#eef2f3',
+                  transform: 'translateY(-2px)',
+                },
+              }}
+            >
+              <GitHub fontSize="small" />
+            </Box>
+
+            <Box
+              component="a"
+              href="https://www.linkedin.com/in/sagnik-ghosh-445b86303/"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                width: 38,
+                height: 38,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                border: '1px solid #dfe5e9',
+                borderRadius: '9px',
+                color: '#263238',
+                transition: 'all 0.25s ease',
+                '&:hover': {
+                  backgroundColor: '#eef2f3',
+                  transform: 'translateY(-2px)',
+                },
+              }}
+            >
+              <LinkedIn fontSize="small" />
+            </Box>
+
+            <Box
+              component="a"
+              href="https://www.instagram.com/sagnik_ghosh_01/"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                width: 38,
+                height: 38,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                border: '1px solid #dfe5e9',
+                borderRadius: '9px',
+                color: '#263238',
+                transition: 'all 0.25s ease',
+                '&:hover': {
+                  backgroundColor: '#eef2f3',
+                  transform: 'translateY(-2px)',
+                },
+              }}
+            >
+              <Instagram fontSize="small" />
+            </Box>
+          </Box>
+        </motion.div>
+      </Box>
     </Box>
   );
 }
