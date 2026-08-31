@@ -125,7 +125,6 @@ function Projects() {
       description:
         "An educational platform where teachers can upload notes, manage assignments, track attendance, and students can access learning materials.",
       technologies: ["Spring Boot", "React", "MySQL"],
-      live: "https://virtualacademy.netlify.app/",
       github: [
         {
           label: "Backend",
